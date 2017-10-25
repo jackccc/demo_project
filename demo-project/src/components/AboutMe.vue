@@ -1,23 +1,36 @@
 <template>
   <div class="about">
       <ul>
-          <li>姓名: {{name}}</li>
-          <li>年龄: {{26}}</li>
-          <li>性别: {{sex}}</li>
+          <li v-for="user in userList" :key="user.userId">
+              用户Id：{{user.userId}}
+              用户姓名：{{user.userName}}
+              用户密码：{{user.password}}
+          </li>
+    
       </ul>
   </div>
 </template>
 
 <script>
-import userAcount from '../model/userAcount'
+import UserAcount from '../model/userAcount'
 export default {
-  name: 'AboutMe',
   data(){
+      let userIns = UserAcount()
       return {
-          name: 'jack',
-          age: '26',
-          sex: 'man'
+          userIns,
+           userList: []
       }
-  }
+  },
+  components: {},
+  created(){
+      console.log(userIns)
+      this.userIns.getUser().then(data => {
+          this.userList = data
+      })
+  },
+  mounted () {
+  },
+  beforeDestroy () {
+  },
 }
 </script>
