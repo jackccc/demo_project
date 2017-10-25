@@ -18,12 +18,11 @@ export default {
       let userIns = UserAcount()
       return {
           userIns,
-           userList: []
+          userList: []
       }
   },
   components: {},
   created(){
-      console.log(userIns)
       this.userIns.getUser().then(data => {
           this.userList = data
       })
@@ -32,5 +31,7 @@ export default {
   },
   beforeDestroy () {
   },
+  computed: {},
+  events: {}
 }
 </script>

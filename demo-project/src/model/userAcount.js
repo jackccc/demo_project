@@ -1,7 +1,9 @@
 import axios from 'axios'
 function UserAcount() {
     function getUser(){
-        return axios.get('http://localhost:51239/api/useracount').then(res => {
+        return axios.get('http://localhost:51239/api/useracount', {
+            crossdomain: true 
+        }).then(res => {
             return res.data
         })
     }
