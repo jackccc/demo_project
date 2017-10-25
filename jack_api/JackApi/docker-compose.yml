@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  jackapi:
+    image: jackapi
+    build:
+      context: ./JackApi
+      dockerfile: Dockerfile
