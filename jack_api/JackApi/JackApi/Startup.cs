@@ -35,6 +35,7 @@ namespace JackApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(options => options.WithOrigins("http://localhost:8080").AllowAnyMethod());
             app.UseMvc();
         }
     }
